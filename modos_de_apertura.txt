@@ -1,0 +1,12 @@
+W   Apertura de un archivo de texto para escritura. Si ya existe se lo destruye y crea nuevamente.
+wb  Apertura de un archivo binario para escritura. Si ya existe se lo destruye y crea nuevamente.
+r   Apertura de un archivo de texto para lectura. Si no existe genera un error.
+rb  Apertura de un archivo binario para lectura. Si no existe genera un error
+a   Apertura de un archivo de texto en modo append. Lo que se escriba se añadirá al final del archivo. Si no existe se lo crea.
+ab  Apertura de un archivo binario en modo append. Lo que se escriba se añadirá al final del archivo. Si no existe se lo crea.
+r+  Apertura de un archivo de texto para actualizar permitiendo lectura y escritura. Si no existe genera un error.
+r+b Apertura de un archivo binario para actualizar permitiendo lectura y escritura. Si no existe genera un error.
+W+  Apertura de un archivo de texto para lectura escritura. Si ya existe se lo destruye y crea nuevamente.
+w+b Apertura de un archivo binario para lectura escritura. Si ya existe se lo destruye y crea nuevamente.
+a+  Apertura de un archivo de texto para lectura añadidura. Si no existe se lo crea.
+a+b Apertura de un archivo binario para lectura - añadidura. Si no existe se lo crea.
