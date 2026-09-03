@@ -1,4 +1,5 @@
 /* Queremos ver total de puntos realizado por equipos, en el archivo puntuaciones.txt*/
+/* este no valida el fopen ni el scanf( )*/
 
 #include    <stdio.h>
 #include    <stdlib.h>
