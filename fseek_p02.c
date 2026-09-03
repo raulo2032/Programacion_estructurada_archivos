@@ -9,51 +9,42 @@ void ingresar (const char*, int);
 void imprimir(const char*, int);
 int cant_autos (const char *);
 
-void ingresar (const char *file, int n){
-
-    int cil;
-    char comb;
-    float vel;
+void ingresar(const char *file, int n) {
     struct autos aux;
-    FILE *f;
-    f = fopen(file, "wb");
-    if (f == NULL) {   printf("Error al abrir el archivo %s\n", file);
-                    return};
+    FILE *f = fopen(file, "wb");
     
-    for (int i = 0; i < n; i++){
-
+    if (f == NULL) {
+        printf("Error al abrir el archivo %s\n", file);
+        return;
+    }
+    
+    for (int i = 0; i < n; i++) {
         printf("\nIngrese cilindrada motor auto %i:", i+1);
-        scanf("%d", &cil);
+        scanf("%d", &aux.cilindrada);
         while (getchar() != '\n');
         
-        aux.cilindrada = cil;
-        //getchar();
-        
-        printf("\nIngrese combustible N/O auto %i:", i+ 1);
-        scanf(" %c", &comb);        // el espacio antes del %c ignora espacios en blanco
+        printf("\nIngrese combustible N/O auto %i:", i+1);
+        scanf(" %c", &aux.combustible);
         while (getchar() != '\n');
-        aux.combustible = comb;
         
-        
-        printf("\nIngrese velocidad máxima auto %i:", i + 1);
-        scanf("%f", &vel);
+        printf("\nIngrese velocidad máxima auto %i:", i+1);
+        scanf("%f", &aux.vel_max);
         while (getchar() != '\n');
-        aux.vel_max = vel;
         
         fwrite(&aux, sizeof(aux), 1, f);
-            
-        }
-        fclose(f);
     }
+    
+    fclose(f);
+}
 void imprimir(const char *file, int n){
 
     struct autos aux;
     FILE *f;
     f = fopen(file, "rb");
-    if (f == NULL)  printf("Error al abrir el archivo %s\n", file);
+    if (f == NULL)  { printf("Error al abrir el archivo %s\n", file); return ;}
     fseek(f, (n-1) * sizeof(aux), SEEK_SET);
     fread(&aux, sizeof(aux), 1, f);
-    printf("\nAuto nro %d\nCilindrada: %dcc\nCombustible: %c\nVelocidad maxina: %.02fkm/h max", n, aux.cilindrada, aux.combustible, aux.vel_max);
+    printf("\nAuto nro %d\nCilindrada: %dcc\nCombustible: %c\nVelocidad maxima: %.02fkm/h max", n, aux.cilindrada, aux.combustible, aux.vel_max);
         fclose(f);
 }
 
