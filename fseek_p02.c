@@ -17,11 +17,11 @@ void ingresar (const char *file, int n){
     struct autos aux;
     FILE *f;
     f = fopen(file, "wb");
-    if (f == NULL)    printf("Error al abrir el archivo %s\n", file);
+    if (f == NULL) {   printf("Error al abrir el archivo %s\n", file);
+                    return};
+    
     for (int i = 0; i < n; i++){
 
-        fflush(f);  //while (getchar() != '\n');
-        
         printf("\nIngrese cilindrada motor auto %i:", i+1);
         scanf("%d", &cil);
         while (getchar() != '\n');
@@ -30,7 +30,7 @@ void ingresar (const char *file, int n){
         //getchar();
         
         printf("\nIngrese combustible N/O auto %i:", i+ 1);
-        scanf("%c", &comb);
+        scanf(" %c", &comb);        // el espacio antes del %c ignora espacios en blanco
         while (getchar() != '\n');
         aux.combustible = comb;
         
